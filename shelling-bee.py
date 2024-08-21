@@ -118,6 +118,7 @@ if __name__ == '__main__':
     input()
     clear_term()
     hive_letters, middle_letter, pangrams, answer_words = create_hive()
+    guessed_words = []
     hive_letters.remove(middle_letter)
     game_over = False
     while not game_over:
@@ -125,6 +126,7 @@ if __name__ == '__main__':
         next_guess = input('next guess: ')
         if next_guess.lower() in answer_words:
             print('good job!')
+            guessed_words.append(game_over)
             time.sleep(1)
         else:
             print('try again')
