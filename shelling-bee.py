@@ -123,10 +123,15 @@ if __name__ == '__main__':
     game_over = False
     while not game_over:
         print_hive(hive_letters, middle_letter)
-        next_guess = input('next guess: ')
-        if next_guess.lower() in answer_words:
+        for guessed_word in guessed_words:
+            if guessed_word in pangrams:
+                print(f'\033[1m{guessed_word}\033[0m')
+            else:
+                print(guessed_word)
+        next_guess = input('next guess: ').lower()
+        if next_guess in answer_words:
             print('good job!')
-            guessed_words.append(game_over)
+            guessed_words.append(next_guess)
             time.sleep(1)
         else:
             print('try again')
